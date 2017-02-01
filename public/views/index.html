@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <!-- <meta charset="utf-8"> -->
+   <!-- <title>Weekend 1 Redone Angular</title> -->
+   <script src="vendors/angular.min.js" charset="utf-8"></script>
+   <script src="scripts/client.js" charset="utf-8"></script>
+   <link rel="stylesheet" href="/vendors/normalize.css">
+   <link rel="stylesheet" href="/vendors/skeleton.css">
+ </head>
+ <body>
+   <main class="container" ng-app="weekendApp" ng-controller="WeekendController as weekend">
+     <header>
+       <h1>Employee List Redone</h1>
+     </header>
+   <form class ="submit">
+     <label>First Name</label>
+     <input type="text" ng-model="firstName" placeholder="Enter first name here">
+
+    <label>Last Name</label>
+     <input type="text" ng-model="lastName" placeholder="Enter last name here">
+
+    <label>ID Number</label>
+     <input type="text" ng-model="idNumber" placeholder="Enter ID here">
+
+    <label>Job Title</label>
+     <input type="text" ng-model="jobTitle" placeholder="Enter job title here">
+
+    <label>Employee Salary</label>
+     <input type="number" ng-model="employeeSalary" placeholder="Enter salary here">
+
+    <h2>Adding employee:{{ firstName }} {{ lastName }} {{ idNumber}} {{ jobTitle}} ${{ employeeSalary}}</h2>
+
+    <button type="submit" ng-click="weekend.addEmployee(firstName, lastName, idNumber, jobTitle, employeeSalary)">Add Employee</button>
+   </form>
+     <h2>All of our Employees</h2>
+     <ul>
+       <li ng-repeat="a in weekend.employees">{{ a }}</li>
+     </ul>
+
+     <h2> Monthly Expenditures </h2>
+     <ul>
+       <li ng-repeat="b in weekend.monthlyExpenditures">${{ b }}</li>
+     </ul>
+
+   </main>
+ </body>
+</html>
